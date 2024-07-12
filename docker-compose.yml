@@ -1,0 +1,17 @@
+version: '3.5'
+services:
+  nexus:
+    image: sonatype/nexus3:latest
+    container_name: nexus-local
+    restart: always
+    ports:
+      - 8800:8081
+    volumes:
+      - ./nexus-data:/nexus-data
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    external: true
+
